@@ -18,3 +18,8 @@
 ## 配置项
 
 > craco 配置了 src 根路径: @/ 就是 src/
+
+## 规范插件 vscode 务必安装
+
+1. sort-imports(下载安装即可,默认配置)
+2. prettier
