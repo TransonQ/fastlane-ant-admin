@@ -8,8 +8,10 @@ const CracoLessPlugin = require("craco-less")
  * https://ant.design/docs/react/customize-theme-cn
  */
 module.exports = {
-  alias: {
-    "@": path.resolve(__dirname, "src/"),
+  webpack: {
+    alias: {
+      "@": path.resolve(__dirname, "src/"),
+    },
   },
   plugins: [
     {

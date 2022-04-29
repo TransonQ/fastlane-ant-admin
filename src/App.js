@@ -1,13 +1,18 @@
 import "./App.less"
 
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import Login from "./components/Login"
+import Main from "./pages/Main"
+
 function App() {
   return (
-    <div>
-      APP.js{" "}
-      <a href='/'>
-        可查看主题色是否配置成功,如果craco-less注释配置部分打开配置主题变量成功,重启服务-此处应该是绿色
-      </a>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/*' element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
