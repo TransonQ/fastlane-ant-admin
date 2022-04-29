@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.less"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      APP.js{" "}
+      <a href='/'>
+        可查看主题色是否配置成功,如果craco-less注释配置部分打开配置主题变量成功,重启服务-此处应该是绿色
+      </a>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
