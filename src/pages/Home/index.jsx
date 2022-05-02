@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +8,7 @@ export const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <button
+      <Button
         onClick={() =>
           navigate("/child", {
             state: { a: 1, b: 2 },
@@ -16,7 +17,7 @@ export const Home = () => {
         }
       >
         跳转到child
-      </button>
+      </Button>
     </>
   );
 };
