@@ -22,18 +22,47 @@ const Main = () => {
   const elements = useRoutes(routes);
   // ahooks
   const [collapsed, { toggle: onCollapse }] = useToggle();
+  const menu_left = [
+    {
+      key: "1",
+      icon: <UserOutlined />,
+      label: "nav 1",
+      children: [
+        {
+          key: "1-1",
+          icon: <UserOutlined />,
+          label: "nav 1-1",
+        },
+        {
+          key: "1-2",
+          icon: <UserOutlined />,
+          label: "nav 1-2",
+        },
+      ],
+    },
+    {
+      key: "2",
+      icon: <VideoCameraOutlined />,
+      label: "nav 2",
+    },
+    {
+      key: "3",
+      icon: <UploadOutlined />,
+      label: "nav 3",
+    },
+  ];
   // user
-  const onClick = ({ key }) => {
+  const onClick1 = ({ key }) => {
     message.info(`Click on item ${key}`);
   };
 
   const menu_user = (
     <Menu
-      onClick={onClick}
       items={[
         {
           label: "1st menu item",
           key: "1",
+          onClick: onClick1,
         },
         {
           label: "2nd menu item",
@@ -58,40 +87,7 @@ const Main = () => {
             style={!collapsed ? { height: 25, width: 124 } : { height: 25, width: 25 }}
           />
         </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
-              children: [
-                {
-                  key: "1-1",
-                  icon: <UserOutlined />,
-                  label: "nav 1-1",
-                },
-                {
-                  key: "1-2",
-                  icon: <UserOutlined />,
-                  label: "nav 1-2",
-                },
-              ],
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
-        />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]} items={menu_left} />
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
