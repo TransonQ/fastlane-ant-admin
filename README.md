@@ -1,5 +1,7 @@
 # antd 4.20 + react-router-dom V6 + react18
 
+# 详情见: antd-example 分支 ~ README.md 里面有详细说明
+
 ## icon
 
 > public 中的 favicon.ico 默认作为页签图标, 自定义做法是将项目图片转成 favicon.icon
