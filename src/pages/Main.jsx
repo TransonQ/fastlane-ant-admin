@@ -8,28 +8,36 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
+import { useLocation, useRoutes } from "react-router-dom";
 
 import React from "react";
 import logo from "@/assets/fastlane.png";
 import logo2 from "@/assets/logo2.png";
 import { routes } from "@/configs/routes";
-import { useRoutes } from "react-router-dom";
 import { useToggle } from "ahooks";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const Main = () => {
   const elements = useRoutes(routes);
+  const location = useLocation();
+  console.log("location: ", location);
   // ahooks
   const [collapsed, { toggle: onCollapse }] = useToggle();
+
   const menu_left = [
     {
-      key: "1",
+      key: "/", // 路由字符串
+      icon: <VideoCameraOutlined />,
+      label: "nav 2",
+    },
+    {
+      key: "2-menu",
       icon: <UserOutlined />,
       label: "nav 1",
       children: [
         {
-          key: "1-1",
+          key: "/child", // 路由字符串
           icon: <UserOutlined />,
           label: "nav 1-1",
         },
@@ -39,11 +47,6 @@ const Main = () => {
           label: "nav 1-2",
         },
       ],
-    },
-    {
-      key: "2",
-      icon: <VideoCameraOutlined />,
-      label: "nav 2",
     },
     {
       key: "3",
@@ -87,7 +90,14 @@ const Main = () => {
             style={!collapsed ? { height: 25, width: 124 } : { height: 25, width: 25 }}
           />
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]} items={menu_left} />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["1"]} // 默认选中
+          defaultOpenKeys={["2-menu"]} // 默认展开
+          items={menu_left}
+          selectedKeys={[location.pathname]}
+        />
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
