@@ -88,7 +88,7 @@ const Main = () => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} style={{ width: 100 }}>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
         {/* 切换时候显示不同的图标,展开就是长图标, 收缩就是小图标 */}
         <div className="logo" style={{ display: "grid", placeItems: "center" }}>
           <img
