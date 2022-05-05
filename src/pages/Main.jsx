@@ -8,7 +8,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import { useLocation, useRoutes } from "react-router-dom";
+import { useLocation, useNavigate, useRoutes } from "react-router-dom";
 
 import React from "react";
 import logo from "@/assets/fastlane.png";
@@ -21,7 +21,8 @@ const { Header, Content, Footer, Sider } = Layout;
 const Main = () => {
   const elements = useRoutes(routes);
   const location = useLocation();
-  console.log("location: ", location);
+  const navigate = useNavigate();
+
   // ahooks
   const [collapsed, { toggle: onCollapse }] = useToggle();
 
@@ -30,6 +31,9 @@ const Main = () => {
       key: "/", // 路由字符串
       icon: <VideoCameraOutlined />,
       label: "nav 2",
+      onClick() {
+        navigate(`/`);
+      },
     },
     {
       key: "2-menu",
@@ -40,6 +44,9 @@ const Main = () => {
           key: "/child", // 路由字符串
           icon: <UserOutlined />,
           label: "nav 1-1",
+          onClick() {
+            navigate(`/child`);
+          },
         },
         {
           key: "1-2",
@@ -96,7 +103,7 @@ const Main = () => {
           defaultSelectedKeys={["1"]} // 默认选中
           defaultOpenKeys={["2-menu"]} // 默认展开
           items={menu_left}
-          selectedKeys={[location.pathname]}
+          selectedKeys={[location.pathname]} // 关联路由
         />
       </Sider>
       <Layout className="site-layout">
